@@ -1,13 +1,15 @@
 import axios from "axios";
-import { useState } from "react";
 
 const baseURL = import.meta.env.VITE_NEXON_API;
-
 const url = import.meta.env.VITE_MY_API;
 
-const useApi = (id: string) => {
-  const [ocid, setOcid] = useState<string>();
-
+const useApi = ({
+  id,
+  setOcid,
+}: {
+  id: string;
+  setOcid: (value: string) => void;
+}) => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
@@ -19,16 +21,15 @@ const useApi = (id: string) => {
         }
       );
 
-      setOcid(response.data);
+      const ocidData = response.data;
+
+      setOcid(ocidData.ocid);
     } catch (e) {
       console.log(e);
     }
   };
 
-  console.log(ocid);
-
   return {
-    ocid,
     fetchData,
   };
 };

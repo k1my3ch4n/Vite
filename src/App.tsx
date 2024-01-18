@@ -1,29 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import useApi from "./useApi";
+import useGetCharacterData from "./useGetCharacterData";
 
 function App() {
   const [api, setApi] = useState<string>("");
+  const [ocid, setOcid] = useState<string | undefined>(undefined);
 
-  const { fetchData } = useApi(api);
+  const { fetchData } = useApi({ id: api, setOcid });
+  const { data, fetchCharacterData } = useGetCharacterData(ocid);
+
+  useEffect(() => {
+    if (!ocid) {
+      return;
+    }
+
+    fetchCharacterData();
+  }, [ocid]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1>Mashboard</h1>
       <div className="card">
         <input value={api} onChange={(e) => setApi(e.target.value)} />
         <button onClick={fetchData} />
       </div>
+      {data && (
+        <div>
+          <p>id : {data.character_name}</p>
+          <p>
+            레벨 : {data.character_level} {data.character_exp_rate}%
+          </p>
+          <p>길드 : {data.character_guild_name ?? "길드 없음"}</p>
+          {/* <p>{data.character_image}</p> */}
+          <p>월드 이름 : {data.world_name}</p>
+        </div>
+      )}
     </>
   );
 }
