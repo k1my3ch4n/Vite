@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import useApi from "./useApi";
-import useGetCharacterData from "./useGetCharacterData";
+import useApi from "./hooks/useApi";
+import useGetCharacterData from "./hooks/useGetCharacterData";
 
 function App() {
   const [api, setApi] = useState<string>("");
