@@ -1,1 +1,1 @@
-export { default } from "./useGetCharacterData";
+export { default } from './useGetCharacterData';

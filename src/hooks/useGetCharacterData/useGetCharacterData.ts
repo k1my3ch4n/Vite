@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useState } from "react";
+import axios from 'axios';
+import { useState } from 'react';
 
 const baseURL = import.meta.env.VITE_NEXON_API;
 const url = import.meta.env.VITE_MY_API;
@@ -27,9 +27,9 @@ const useGetCharacterData = (ocid?: string) => {
         `${baseURL}/maplestory/v1/character/basic?ocid=${ocid}&date=2024-01-17`,
         {
           headers: {
-            "x-nxopen-api-key": url,
+            'x-nxopen-api-key': url,
           },
-        }
+        },
       );
 
       setData(response.data);

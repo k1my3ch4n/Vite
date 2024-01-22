@@ -15,10 +15,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
-    "strict": true
+    "strict": true,
   },
   // 컴파일 시 포함되는 파일 또는 패턴
   "include": ["src"],
   // 프로젝트 참조에 대한 파일 경로
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

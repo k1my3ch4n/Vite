@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import useApi from "./hooks/useApi";
-import useGetCharacterData from "./hooks/useGetCharacterData";
+import { useEffect, useState } from 'react';
+import useApi from './hooks/useApi';
+import useGetCharacterData from './hooks/useGetCharacterData';
 
 function App() {
-  const [api, setApi] = useState<string>("");
+  const [api, setApi] = useState<string>('');
   const [ocid, setOcid] = useState<string | undefined>(undefined);
 
   const { fetchData } = useApi({ id: api, setOcid });
@@ -31,7 +30,7 @@ function App() {
           <p>
             레벨 : {data.character_level} {data.character_exp_rate}%
           </p>
-          <p>길드 : {data.character_guild_name ?? "길드 없음"}</p>
+          <p>길드 : {data.character_guild_name ?? '길드 없음'}</p>
           {/* <p>{data.character_image}</p> */}
           <p>월드 이름 : {data.world_name}</p>
         </div>
