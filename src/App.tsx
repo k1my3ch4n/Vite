@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import useApi from './hooks/useApi';
 import useGetCharacterData from './hooks/useGetCharacterData';
+import Button from './components/Button';
 
 function App() {
   const [api, setApi] = useState<string>('');
@@ -22,7 +23,9 @@ function App() {
       <h1>Mashboard</h1>
       <div className="card">
         <input value={api} onChange={(e) => setApi(e.target.value)} />
-        <button onClick={fetchData} />
+        <Button variant="red" onClick={fetchData}>
+          검색
+        </Button>
       </div>
       {data && (
         <div>

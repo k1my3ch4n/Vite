@@ -35,16 +35,16 @@
 }
 
 // variant
-.primary {
+.purple {
   background-color: #633de5;
-  color: $white;
+  color: white;
 
   &:hover {
     background-color: #4d30b2;
   }
 }
 
-.outlined {
+.lined {
   background-color: #33363b;
   border: 1px solid#4d5056;
   color: #dedede;
@@ -54,9 +54,9 @@
   }
 }
 
-.danger {
+.red {
   background-color: #f1414a;
-  color: $white;
+  color: white;
 
   &:hover {
     background-color: #d63a42;
