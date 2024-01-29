@@ -1,17 +1,18 @@
 import ROUTES from './constants/routes';
-import { createBrowserRouter } from 'react-router-dom';
+import { RouteObject, createBrowserRouter } from 'react-router-dom';
 
-import { Home, Detail } from './pages';
+// import { Home, Detail } from './pages';
+import { lazy } from 'react';
+
+export const protectedRoutes: RouteObject[] = [
+  {
+    path: ROUTES.home,
+    Component: lazy(() => import('./pages/Home')),
+  },
+];
 
 export const router = createBrowserRouter([
   {
-    path: ROUTES.home,
-    Component: Home,
-    children: [
-      {
-        path: ROUTES.detail,
-        Component: Detail,
-      },
-    ],
+    children: protectedRoutes,
   },
 ]);
