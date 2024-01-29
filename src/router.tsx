@@ -1,7 +1,7 @@
 import ROUTES from './constants/routes';
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Home, Detail } from 'pages';
+import { Home, Detail } from './pages';
 
 export const router = createBrowserRouter([
   {

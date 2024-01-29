@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import useApi from '../../hooks/useApi';
-import useGetCharacterData from '../../hooks/useGetCharacterData';
-import Button from '../../components/Button';
+import useApi from '@hooks/useApi';
+import useGetCharacterData from '@hooks/useGetCharacterData';
+import Button from '@components/Button';
 
 const Home = () => {
   const [api, setApi] = useState<string>('');
