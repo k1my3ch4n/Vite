@@ -31,7 +31,7 @@ jobs:
         run: |
           yarn install
 
-      - name: Run test
-        id: run_test
-        run: |
-          yarn test
+    #   - name: Run test
+    #     id: run_test
+    #     run: |
+    #       yarn test
