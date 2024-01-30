@@ -2,22 +2,32 @@ import { useState } from 'react';
 import HomeView from './HomeView';
 import { useNavigate } from 'react-router';
 import ROUTES from '@constants/routes';
+import { replaceParam } from '@utils/navigateUtil';
 
 const Home = () => {
   const navigate = useNavigate();
 
-  const [api, setApi] = useState<string>('');
+  const [characterId, setCharacterId] = useState<string>('');
 
   const handleChangeCharacterName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setApi(e.target.value);
+    setCharacterId(e.target.value);
   };
 
   const handleClickSearchButton = () => {
-    navigate(ROUTES.detail);
+    navigate(
+      replaceParam({
+        path: ROUTES.detail,
+        params: { characterId },
+      }),
+    );
   };
 
   return (
-    <HomeView value={api} onChange={handleChangeCharacterName} onClick={handleClickSearchButton} />
+    <HomeView
+      value={characterId}
+      onChange={handleChangeCharacterName}
+      onClick={handleClickSearchButton}
+    />
   );
 };
 
