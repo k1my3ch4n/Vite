@@ -12,11 +12,11 @@ const HomeView = ({
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }) => {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <h1>Mashboard</h1>
-      <div className="card">
+      <div className={styles.search}>
         <input value={value} onChange={onChange} />
-        <Button variant="red" onClick={onClick}>
+        <Button variant="purple" onClick={onClick}>
           검색
         </Button>
       </div>

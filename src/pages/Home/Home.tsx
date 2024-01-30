@@ -1,30 +1,24 @@
-import { useEffect, useState } from 'react';
-import useApi from '@hooks/useApi';
-import useGetCharacterData from '@hooks/useGetCharacterData';
+import { useState } from 'react';
 import HomeView from './HomeView';
+import { useNavigate } from 'react-router';
+import ROUTES from '@constants/routes';
 
 const Home = () => {
-  const [api, setApi] = useState<string>('');
-  const [ocid, setOcid] = useState<string | undefined>(undefined);
+  const navigate = useNavigate();
 
-  const { fetchData } = useApi({ id: api, setOcid });
-  const { data, fetchCharacterData } = useGetCharacterData(ocid);
+  const [api, setApi] = useState<string>('');
 
   const handleChangeCharacterName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setApi(e.target.value);
   };
 
-  useEffect(() => {
-    if (!ocid) {
-      return;
-    }
+  const handleClickSearchButton = () => {
+    navigate(ROUTES.detail);
+  };
 
-    fetchCharacterData();
-
-    console.log(data);
-  }, [ocid]);
-
-  return <HomeView value={api} onChange={handleChangeCharacterName} onClick={fetchData} />;
+  return (
+    <HomeView value={api} onChange={handleChangeCharacterName} onClick={handleClickSearchButton} />
+  );
 };
 
 export default Home;
