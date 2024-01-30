@@ -1,0 +1,1 @@
+export { replaceParam } from './navigateUtil';

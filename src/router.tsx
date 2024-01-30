@@ -1,4 +1,4 @@
-import ROUTES from './constants/routes';
+import ROUTES from '@constants/routes';
 import { RouteObject, createBrowserRouter } from 'react-router-dom';
 
 // import { Home, Detail } from './pages';
