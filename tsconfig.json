@@ -20,6 +20,7 @@
       "@constants/*": ["src/constants/*"],
       "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"],
     },
     "strict": true,
   },

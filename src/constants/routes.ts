@@ -1,6 +1,6 @@
 export const ROUTES = {
   home: '/',
-  detail: 'detail',
+  detail: '/:characterId',
 } as const;
 
 export default ROUTES;
