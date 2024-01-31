@@ -9,6 +9,10 @@ export const protectedRoutes: RouteObject[] = [
     path: ROUTES.home,
     Component: lazy(() => import('./pages/Home')),
   },
+  {
+    path: ROUTES.detail,
+    Component: lazy(() => import('./pages/Detail')),
+  },
 ];
 
 export const router = createBrowserRouter([
