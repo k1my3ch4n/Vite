@@ -1,30 +1,20 @@
 import axios from 'axios';
-import { useState } from 'react';
+
+import { useRecoilState } from 'recoil';
+import characterAtom from '@recoil/user/character';
 
 const baseURL = import.meta.env.VITE_NEXON_API;
 const url = import.meta.env.VITE_MY_API;
 
-interface CharacterData {
-  character_class: string;
-  character_class_level: string;
-  character_exp: number;
-  character_exp_rate: string;
-  character_gender: string;
-  character_guild_name: string | null;
-  character_image: string;
-  character_level: number;
-  character_name: string;
-  date: string;
-  world_name: string;
-}
+const useGetCharacterData = () => {
+  const [characterData, setCharacterData] = useRecoilState(characterAtom);
 
-const useGetCharacterData = (ocid?: string) => {
-  const [data, setData] = useState<CharacterData | undefined>(undefined);
-
-  const fetchCharacterData = async () => {
+  const fetchCharacterData = async (ocid?: string) => {
     try {
+      console.log('ocid : ', ocid);
+
       const response = await axios.get(
-        `${baseURL}/maplestory/v1/character/basic?ocid=${ocid}&date=2024-01-17`,
+        `${baseURL}/maplestory/v1/character/basic?ocid=${ocid}&date=2024-01-24`,
         {
           headers: {
             'x-nxopen-api-key': url,
@@ -32,14 +22,14 @@ const useGetCharacterData = (ocid?: string) => {
         },
       );
 
-      setData(response.data);
+      setCharacterData(response.data);
     } catch (e) {
-      console.log(e);
+      console.log('characterData 조회에 실패했습니다 .');
     }
   };
 
   return {
-    data,
+    characterData,
     fetchCharacterData,
   };
 };
