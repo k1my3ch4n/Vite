@@ -11,8 +11,6 @@ const useGetCharacterData = () => {
 
   const fetchCharacterData = async (ocid?: string) => {
     try {
-      console.log('ocid : ', ocid);
-
       const response = await axios.get(
         `${baseURL}/maplestory/v1/character/basic?ocid=${ocid}&date=2024-01-24`,
         {
