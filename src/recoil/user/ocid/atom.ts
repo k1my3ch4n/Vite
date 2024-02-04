@@ -2,10 +2,10 @@ import { atom } from 'recoil';
 
 import { localStorageEffect } from '@utils/recoilUtil';
 
-const ocidAtom = atom<string | null>({
+const ocidAtom = atom<string | undefined>({
   key: 'ocidAtom',
-  default: null,
-  effects: [localStorageEffect<string | null>('ocid')],
+  default: undefined,
+  effects: [localStorageEffect<string | undefined>('ocid')],
 });
 
 export default ocidAtom;

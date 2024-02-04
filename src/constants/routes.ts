@@ -1,6 +1,5 @@
 export const ROUTES = {
   home: '/',
-  detail: '/:characterId',
   character: '/character',
   union: '/union',
   guild: '/guild',

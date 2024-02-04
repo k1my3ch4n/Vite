@@ -14,7 +14,7 @@ export const protectedRoutes: RouteObject[] = [
   },
   {
     path: ROUTES.character,
-    Component: lazy(() => import('./pages/Detail')),
+    Component: lazy(() => import('./pages/Character')),
   },
 ];
 

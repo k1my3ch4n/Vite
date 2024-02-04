@@ -9,7 +9,7 @@ const url = import.meta.env.VITE_MY_API;
 const useGetCharacterData = () => {
   const [characterData, setCharacterData] = useRecoilState(characterAtom);
 
-  const fetchCharacterData = async (ocid?: string) => {
+  const fetchCharacterData = async (ocid: string) => {
     try {
       const response = await axios.get(
         `${baseURL}/maplestory/v1/character/basic?ocid=${ocid}&date=2024-01-24`,
