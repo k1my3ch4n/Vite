@@ -9,12 +9,12 @@ export const protectedRoutes: RouteObject[] = [
     Component: lazy(() => import('./pages/Home')),
   },
   {
-    path: ROUTES.detail,
-    Component: lazy(() => import('./pages/Detail')),
-  },
-  {
     path: ROUTES.character,
     Component: lazy(() => import('./pages/Character')),
+  },
+  {
+    path: ROUTES.union,
+    Component: lazy(() => import('./pages/Union')),
   },
 ];
 
