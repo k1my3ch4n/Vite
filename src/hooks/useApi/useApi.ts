@@ -1,19 +1,15 @@
+import ocidAtom from '@recoil/user/ocid/atom';
 import axios from 'axios';
-
-import { useEffect } from 'react';
 
 const baseURL = import.meta.env.VITE_NEXON_API;
 const url = import.meta.env.VITE_MY_API;
 
-import { useParams } from 'react-router-dom';
-import useGetCharacterData from '@hooks/useGetCharacterData';
+import { useSetRecoilState } from 'recoil';
 
 const useApi = () => {
-  const { characterId } = useParams();
+  const setOcid = useSetRecoilState(ocidAtom);
 
-  const { characterData, fetchCharacterData } = useGetCharacterData();
-
-  const fetchOcid = async () => {
+  const fetchOcid = async (characterId: string) => {
     try {
       const response = await axios.get(
         `${baseURL}/maplestory/v1/id?character_name=${characterId}`,
@@ -24,22 +20,14 @@ const useApi = () => {
         },
       );
 
-      await fetchCharacterData(response.data.ocid);
+      setOcid(response.data.ocid);
     } catch (e) {
       console.log('ocid 조회에 실패했습니다.');
     }
   };
 
-  useEffect(() => {
-    if (!characterId) {
-      return;
-    }
-
-    fetchOcid();
-  }, []);
-
   return {
-    characterData,
+    fetchOcid,
   };
 };
 

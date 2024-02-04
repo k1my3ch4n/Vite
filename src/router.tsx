@@ -12,6 +12,10 @@ export const protectedRoutes: RouteObject[] = [
     path: ROUTES.detail,
     Component: lazy(() => import('./pages/Detail')),
   },
+  {
+    path: ROUTES.character,
+    Component: lazy(() => import('./pages/Detail')),
+  },
 ];
 
 export const router = createBrowserRouter([
