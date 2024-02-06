@@ -1,10 +1,10 @@
+import NavigationBar from '@components/NavigationBar';
 import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
     <div>
-      {/* <NavigationBar /> */}
-      11
+      <NavigationBar />
       <div>
         <Outlet />
       </div>
