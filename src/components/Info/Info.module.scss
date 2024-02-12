@@ -2,7 +2,7 @@
   width: 100%;
 
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
 
   background-color: gray;
@@ -12,4 +12,12 @@
   padding: 5px;
 
   margin-top: 5px;
+
+  &.single {
+    justify-content: center;
+  }
+
+  &.double {
+    justify-content: space-between;
+  }
 }

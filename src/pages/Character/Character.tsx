@@ -31,7 +31,13 @@ const Character = () => {
     world_name,
   } = characterData;
 
-  return <CharacterView characterClass={character_class} />;
+  return (
+    <CharacterView
+      characterClass={character_class}
+      characterLevel={character_level}
+      characterName={character_name}
+    />
+  );
 };
 
 export default Character;

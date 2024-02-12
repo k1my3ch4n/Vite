@@ -3,26 +3,36 @@ import styles from './Character.module.scss';
 
 interface CharacterViewParams {
   characterClass: string;
+  characterLevel: number;
+  characterName: string;
 }
 
-const CharacterView = ({ characterClass }: CharacterViewParams) => {
+const CharacterView = ({ characterClass, characterLevel, characterName }: CharacterViewParams) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <p>CHARACTER INFO</p>
         <div className={styles.infoWrapper}>
           <div className={styles.basic}>
-            <div className={styles.class}>{characterClass}</div>
+            <Info label={characterClass} />
             <div className={styles.info}>
               <Info label="유니온" value="8000" />
               <Info label="무릉도장" value="80층" />
               <Info label="인기도" value="800" />
             </div>
           </div>
-          <div className={styles.character}>캐릭터 정보</div>
-          <div className={styles.guild}>길드 정보</div>
+          <div className={styles.character}>
+            <div className={styles.level}>Lv. {characterLevel}</div>
+            <div>사진</div>
+            <Info label={characterName} />
+          </div>
+          <div className={styles.guild}>
+            <Info label="길드" />
+            <Info label="길드" value="-" />
+            <Info label="연합" value="-" />
+          </div>
         </div>
-        <div>디테일 토글 버튼</div>
+        <div className={styles.detailToggle}>DETAIL</div>
       </div>
       {/* 디테일 토글 버튼 on 인 경우 보임 */}
       {/* <div className={styles.detail}>

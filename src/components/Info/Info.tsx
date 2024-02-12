@@ -1,10 +1,10 @@
 import styles from './Info.module.scss';
 
-const Info = ({ label, value }: { label: string; value: string }) => {
+const Info = ({ label, value }: { label: string; value?: string }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${value ? styles.double : styles.single}`}>
       <div>{label}</div>
-      <div>{value}</div>
+      {value && <div>{value}</div>}
     </div>
   );
 };
