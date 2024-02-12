@@ -1,4 +1,50 @@
-.infoWrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+.wrapper {
+  display: flex;
+
+  .header {
+    padding: 10px;
+
+    border-radius: 8px;
+
+    background-color: dimgray;
+
+    & > p {
+      color: yellowgreen;
+      font-weight: 600;
+    }
+
+    .infoWrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-top: 10px;
+
+      background-color: white;
+      border-radius: 8px;
+
+      width: 600px;
+      min-height: 200px;
+
+      .basic {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 10px;
+
+        .class {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          border-radius: 20px;
+          background-color: gray;
+          padding: 5px;
+        }
+
+        .info {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
