@@ -1,0 +1,23 @@
+.wrapper {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  background-color: gray;
+  color: white;
+
+  border-radius: 20px;
+  padding: 5px;
+
+  margin-top: 5px;
+
+  &.single {
+    justify-content: center;
+  }
+
+  &.double {
+    justify-content: space-between;
+  }
+}

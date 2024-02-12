@@ -1,0 +1,96 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .header {
+    padding: 10px;
+
+    border-radius: 8px;
+
+    background-color: dimgray;
+
+    & > p {
+      color: yellowgreen;
+      font-weight: 600;
+    }
+
+    .infoWrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-top: 10px;
+
+      background-color: white;
+      border-radius: 8px;
+
+      width: 600px;
+      min-height: 200px;
+
+      .basic {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 10px;
+
+        .info {
+          width: 100%;
+        }
+      }
+
+      .character {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .level {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background-color: gray;
+          border-radius: 0 0 8px 8px;
+
+          color: white;
+          font-weight: 600;
+        }
+
+        .username {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background-color: gray;
+          border-radius: 8px 8px 0 0;
+
+          color: white;
+          font-weight: 600;
+        }
+      }
+
+      .guild {
+        padding: 10px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+    }
+
+    .detailToggle {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      border-radius: 8px;
+      border: 1px solid black;
+
+      background-color: black;
+      color: white;
+      font-weight: 500;
+
+      margin-top: 5px;
+    }
+  }
+}
