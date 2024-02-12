@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  border-bottom: 1px solid black;
+
+  .title {
+    padding: 10px;
+    color: white;
+    background-color: purple;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+}

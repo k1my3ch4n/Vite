@@ -1,15 +1,20 @@
-import useApi from '@hooks/useApi';
-import characterAtom from '@recoil/user/character';
+import useGetCharacterData from '@hooks/useGetCharacterData';
+import ocidAtom from '@recoil/user/ocid';
+import { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 
-const Detail = () => {
-  useApi();
+const Character = () => {
+  const ocid = useRecoilValue(ocidAtom);
 
-  const data = useRecoilValue(characterAtom);
+  const { characterData, fetchCharacterData } = useGetCharacterData();
 
-  if (!data) {
-    <div>no Data</div>;
-  }
+  useEffect(() => {
+    if (!ocid) {
+      return;
+    }
+
+    fetchCharacterData(ocid);
+  }, [ocid]);
 
   const {
     character_class,
@@ -23,7 +28,7 @@ const Detail = () => {
     character_name,
     date,
     world_name,
-  } = data;
+  } = characterData;
 
   return (
     <div>
@@ -42,4 +47,4 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default Character;

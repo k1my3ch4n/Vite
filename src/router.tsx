@@ -2,6 +2,7 @@ import ROUTES from '@constants/routes';
 import { RouteObject, createBrowserRouter } from 'react-router-dom';
 
 import { lazy } from 'react';
+import Layout from '@components/Layout';
 
 export const protectedRoutes: RouteObject[] = [
   {
@@ -9,12 +10,17 @@ export const protectedRoutes: RouteObject[] = [
     Component: lazy(() => import('./pages/Home')),
   },
   {
-    path: ROUTES.detail,
-    Component: lazy(() => import('./pages/Detail')),
-  },
-  {
-    path: ROUTES.character,
-    Component: lazy(() => import('./pages/Detail')),
+    Component: Layout,
+    children: [
+      {
+        path: ROUTES.character,
+        Component: lazy(() => import('./pages/Character')),
+      },
+      {
+        path: ROUTES.union,
+        Component: lazy(() => import('./pages/Union')),
+      },
+    ],
   },
 ];
 
