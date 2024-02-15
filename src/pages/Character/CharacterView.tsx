@@ -35,8 +35,12 @@ const CharacterView = ({ characterClass, characterLevel, characterName }: Charac
         <div className={styles.detailToggle}>DETAIL</div>
       </div>
       <div className={styles.detail}>
-        <div>STAT</div>
-        <div>전투력 : 000만</div>
+        <div className={styles.statHeader}>STAT</div>
+        <div className={styles.statCount}>
+          <div>전투력</div>
+          <div>000만</div>
+          <div>?</div>
+        </div>
         <div>stat info</div>
         <div>stat info detail</div>
         <div>extra detail</div>
