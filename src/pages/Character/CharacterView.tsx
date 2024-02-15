@@ -34,8 +34,7 @@ const CharacterView = ({ characterClass, characterLevel, characterName }: Charac
         </div>
         <div className={styles.detailToggle}>DETAIL</div>
       </div>
-      {/* 디테일 토글 버튼 on 인 경우 보임 */}
-      {/* <div className={styles.detail}>
+      <div className={styles.detail}>
         <div>STAT</div>
         <div>전투력 : 000만</div>
         <div>stat info</div>
@@ -45,7 +44,7 @@ const CharacterView = ({ characterClass, characterLevel, characterName }: Charac
           <div>하이퍼스탯</div>
           <div>어빌리티</div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
